@@ -1,0 +1,39 @@
+# ビルドやコンパイル生成物を無視
+/build/
+/bin/
+/dist/
+
+# 一般的なシステムファイルやディレクトリ
+/.DS_Store
+/.idea/
+/.vscode/
+/.cache/
+
+# 依存関係やパッケージ管理ツールによって生成されるディレクトリ
+/node_modules/
+/vendor/
+/__pycache__/
+/.pyc/
+/mychatapp/
+
+# ログや一時ファイル
+/logs/
+/temp/
+*.log
+
+# 環境設定ファイル
+.env
+
+# バイナリファイルや画像、動画、音声ファイル
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
+/*.mp4
+/*.avi
+/*.mp3
+
+# プロジェクト固有の設定や個人の設定ファイル
+/config.js
+/secrets.js
+
