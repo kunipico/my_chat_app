@@ -25,6 +25,16 @@
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confPassword" name="confPassword" required>
 
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for message in messages %}
+              <p class="flash-message">{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% endwith %}
+
         <button type="submit">Register</button>
     </form>
 

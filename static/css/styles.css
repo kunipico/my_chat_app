@@ -9,6 +9,7 @@ body {
 }
 
 .container {
+  /* margin-top: 20px; */
   background-color: #e1f1e8; /* グリーン */
   padding: 20px;
   border-radius: 10px;
@@ -75,9 +76,9 @@ a:hover {
 }
 
 /* フラッシュメッセージのスタイル */
-/* .flash-messages {
+.flash-messages {
   margin-top: 1px;
-} */
+}
 
 .flash-message {
   padding: 10px;
@@ -88,18 +89,4 @@ a:hover {
   color: #ff3333; /* 濃い緑 */
   margin-bottom: 10px;
   margin-top: 10px;
-}
-
-/* フラッシュメッセージの成功メッセージ */
-.flash-message.success {
-  background-color: #4caf50; /* グリーン */
-  color: #fff;
-  border-color: #45a049; /* より濃いグリーン */
-}
-
-/* フラッシュメッセージのエラーメッセージ */
-.flash-message.error {
-  background-color: #ff3333; /* 赤 */
-  color: #fff;
-  border-color: #cc0000; /* より濃い赤 */
 }
