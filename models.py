@@ -3,7 +3,6 @@ from util.DB import DB
 
 class dbConnect:
     def createUser(user):
-        cur = None
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
@@ -14,8 +13,7 @@ class dbConnect:
             print(e,'が発生しています')
             return None
         finally:
-            if cur is not None:
-                cur.close()
+            cur.close()
 
 
     def getUserId(email):
@@ -35,7 +33,6 @@ class dbConnect:
 
     #def getUser(email):
     def getUser(info):
-        cur = None
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
@@ -47,8 +44,7 @@ class dbConnect:
             print(e,'が発生しています')
             return None
         finally:
-            if cur is not None:
-                cur.close()
+            cur.close()
 
 
     def getChannelAll():

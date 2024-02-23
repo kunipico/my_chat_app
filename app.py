@@ -65,11 +65,11 @@ def userlogin():
     else:
         user = dbConnect.getUser(name)
         if user is None:
-            flash('このユーザーは存在しません')
+            flash('ログイン情報が間違っています')
         else:
             hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
             if hashPassword != user["password"]:
-                flash('パスワードが間違っています！')
+                flash('ログイン情報が間違っています')
             else:
                 session['uid'] = user["uid"]
                 return redirect('/hello')

@@ -73,3 +73,33 @@ a:hover {
   color: #004d00; /* より濃いグリーン */
   text-decoration: underline;
 }
+
+/* フラッシュメッセージのスタイル */
+/* .flash-messages {
+  margin-top: 1px;
+} */
+
+.flash-message {
+  padding: 10px;
+  border-top: 1px solid #cc0000; /* 濃い緑 */
+  border-bottom: 1px solid #cc0000; /* 濃い緑 */
+  /* border-radius: 5px; */
+  background-color: #e1f1e8; /* グリーン */
+  color: #ff3333; /* 濃い緑 */
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* フラッシュメッセージの成功メッセージ */
+.flash-message.success {
+  background-color: #4caf50; /* グリーン */
+  color: #fff;
+  border-color: #45a049; /* より濃いグリーン */
+}
+
+/* フラッシュメッセージのエラーメッセージ */
+.flash-message.error {
+  background-color: #ff3333; /* 赤 */
+  color: #fff;
+  border-color: #cc0000; /* より濃い赤 */
+}

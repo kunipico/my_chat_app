@@ -12,7 +12,7 @@
 # 依存関係やパッケージ管理ツールによって生成されるディレクトリ
 /node_modules/
 /vendor/
-/__pycache__/
+*/__pycache__/
 /.pyc/
 /mychatapp/
 
