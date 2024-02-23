@@ -8,6 +8,25 @@
 </head>
 <body>
 
+  <div class="container">
+      <form action="/login" method="post">
+          <h1>Login</h1>
+
+          <label for="username">Username:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit">Login</button>
+      </form>
+
+      <p>Don't have an account? <a href="/signup">Register here</a></p>
+  </div>
+
+</body>
+<!-- <body>
+
     <form>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -18,5 +37,7 @@
         <button type="submit">Login</button>
     </form>
 
-</body>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+
+</body> -->
 </html>

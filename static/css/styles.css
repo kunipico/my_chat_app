@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f6f2; /* クリーム色 */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -8,32 +8,68 @@ body {
   height: 100vh;
 }
 
-form {
-  background-color: #fff;
+.container {
+  background-color: #e1f1e8; /* グリーン */
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   width: 300px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #003300; /* 濃い緑 */
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+  color: #003300; /* 濃い緑 */
 }
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 16px;
   box-sizing: border-box;
+  border: 1px solid #003300; /* 濃い緑 */
+  border-radius: 5px;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #4caf50; /* グリーン */
   color: #fff;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* より濃いグリーン */
+}
+
+p {
+  margin-top: 20px;
+  color: #003300; /* 濃い緑 */
+}
+
+a {
+  color: #006600; /* グリーン */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #004d00; /* より濃いグリーン */
+  text-decoration: underline;
 }
