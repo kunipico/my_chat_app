@@ -18,10 +18,11 @@ app.permanent_session_lifetime = timedelta(days=1)
 def hello_world():
     print('Hello Flask!')
     uid = session.get("uid")
+    name = session.get('username')
     if uid is None:
         return redirect('/login')
     else:
-        return render_template('index.html')
+        return render_template('index.html',username = name)
 
 
 @app.get('/login')
@@ -44,6 +45,7 @@ def userlogin():
                 flash('ログイン情報が間違っています')
             else:
                 session['uid'] = user["uid"]
+                session['username'] = name
                 return redirect('/')
     return redirect('/login')
 
