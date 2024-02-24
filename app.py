@@ -21,7 +21,7 @@ def hello_world():
     if uid is None:
         return redirect('/login')
     else:
-        return "<p>Hello, World</p>"
+        return render_template('index.html')
 
 
 @app.get('/login')

@@ -1,3 +1,12 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ログインページと登録ページ */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f6f6f2; /* クリーム色 */
@@ -89,4 +98,72 @@ a:hover {
   color: #ff3333; /* 濃い緑 */
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+/* チャットメインページ */
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+} */
+
+.chat-app-container {
+  margin: 10px;
+  display: flex;
+  height: 50em;
+  justify-content: space-between;
+  flex-grow: 10; 
+}
+
+#sidebar {
+  width: 30%;
+  background-color: #369f91;
+  color: #fff;
+  padding: 20px;
+}
+
+#main-content {
+  flex-grow: 1;
+  padding: 20px;
+  height: 50em;
+  width: 70%;
+}
+
+#chat-window {
+  border: 1px solid #ccc;
+  background-color: #e1f1e8;
+  border-radius: 20px;
+  height: 400px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+#message-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+#message-input textarea {
+  flex-grow: 1;
+  resize: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#message-input button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#logout-btn {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
 }
