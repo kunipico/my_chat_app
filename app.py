@@ -14,13 +14,40 @@ app = Flask(__name__)
 app.secret_key = uuid.uuid4().hex
 app.permanent_session_lifetime = timedelta(days=1)
 
-@app.get('/hello')
-def hello_world():
-    return "<p>Hello, World!</p>"
-
 @app.get('/')
+def hello_world():
+    print('Hello Flask!')
+    uid = session.get("uid")
+    if uid is None:
+        return redirect('/login')
+    else:
+        return "<p>Hello, World!</p>"
+
+
+@app.get('/login')
 def login():
     return render_template('login.html')
+
+@app.post('/login')
+def userlogin():
+    name = request.form.get('name')
+    password = request.form.get('password')
+    if name =='' or password == '':
+        flash('空のフォームがあるようです')
+    else:
+        user = dbConnect.getUser(name)
+        if user is None:
+            flash('ログイン情報が間違っています')
+        else:
+            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
+            if hashPassword != user["password"]:
+                flash('ログイン情報が間違っています')
+            else:
+                session['uid'] = user["uid"]
+                return redirect('/')
+    return redirect('/login')
+
+
 
 @app.get('/signup')
 def signup():
@@ -53,27 +80,9 @@ def userSignup():
             dbConnect.createUser(user)
             UserId = str(uid)
             session['uid'] = UserId
-            return redirect('/hello')
+            return redirect('/')
     return redirect('/signup')
 
-@app.post('/login')
-def userlogin():
-    name = request.form.get('name')
-    password = request.form.get('password')
-    if name =='' or password == '':
-        flash('空のフォームがあるようです')
-    else:
-        user = dbConnect.getUser(name)
-        if user is None:
-            flash('ログイン情報が間違っています')
-        else:
-            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
-            if hashPassword != user["password"]:
-                flash('ログイン情報が間違っています')
-            else:
-                session['uid'] = user["uid"]
-                return redirect('/hello')
-    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True,port='8080')
