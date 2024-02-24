@@ -16,7 +16,7 @@ app.permanent_session_lifetime = timedelta(days=1)
 
 @app.get('/hello')
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "<p>Hello, World</p>"
 
 @app.get('/')
 def login():
