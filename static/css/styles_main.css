@@ -129,8 +129,9 @@ body {
 }
 
 .user-name {
+  /* margin-top: 10px; */
   width: fit-content;
-  color: var(--ash_gray);
+  color: var(--navy);
 }
 
 .other {
@@ -141,4 +142,16 @@ body {
 .own {
   margin-left: auto;
   margin-right: 10px;
+}
+
+.messages{
+  margin-bottom: 10px;
+}
+
+.my-messages{
+  margin-bottom: 10px;
+}
+
+.my-messages-wrapper {
+  display: flex;
 }

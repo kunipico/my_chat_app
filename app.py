@@ -55,6 +55,11 @@ def userlogin():
     return redirect('/login')
 
 
+@app.get('/logout')
+def logout():
+    session.clear()
+    return redirect('/login')
+
 
 @app.get('/signup')
 def signup():
