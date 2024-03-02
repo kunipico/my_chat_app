@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talkie Village</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles_main.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/color.css')}}">
+  
+</head>
+<body>
+  <div class="chat-app-container">
+    <div id="sidebar">
+      <h1>Talkie Village</h1>
+      <p id="username">{{ username }}</p>
+      <button id="logout-btn">Logout</button>
+    </div>
+
+    <div id="main-content">
+      <h2>Main Room</h2>
+      
+      <div id="chat-window">
+        {% if messages|length > 0 %}
+          {% for message in messages %}
+            {% if message.uid == uid %}
+              <div class="my-messages">
+                <p class="user-name own">{{ message.user_name }}</p>
+                <p class="box box-right">{{ message.message }}</p>
+                <form action="/delete_message" method="POST">
+                  <input type="hidden" value="{{ channel.id }}" name="channel_id" />
+                  <button
+                    class="delete-message-btn"
+                    name="message_id"
+                    value="{{ message.id }}"
+                  >
+                    <ion-icon name="trash-bin-outline"></ion-icon>
+                  </button>
+                </form>
+              </div>
+            {% else %}
+              <div class="messages">
+                <p class="user-name other">{{ message.user_name }}</p>
+                <p class="box box-left">{{ message.message }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <div><p>まだメッセージがありません</p></div>
+        {% endif %}
+      </div>
+
+      <div class="message-input">
+        <form id="typing-box" action="/message" method="POST">
+          <textarea id="add_message" name="add_message" placeholder="Type your message"></textarea>
+          <button id="send-btn">Send</button>
+        </form>      
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
