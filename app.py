@@ -19,12 +19,17 @@ def hello_world():
     print('Hello Flask!')
     uid = session.get("uid")
     name = session.get('username')
+    cid = 1
     if uid is None:
         return redirect('/login')
     else:
-        return render_template('index.html',username = name)
+        messages = dbConnect.getMessageAll(cid)
+        return render_template('index.html', username = name, messages = messages, uid=uid, channel=cid)
 
 
+#################
+# Registration  #
+#################
 @app.get('/login')
 def login():
     return render_template('login.html')
@@ -84,6 +89,37 @@ def userSignup():
             session['uid'] = UserId
             return redirect('/')
     return redirect('/signup')
+
+
+
+############
+# Message  #
+############
+@app.post('/message')
+def add_message():
+    print("Add Message!!!")
+    uid = session.get("uid")
+    if uid is None:
+        return redirect('/login')
+
+    message = request.form.get('add_message')
+    print('message = ',message)
+    # channel_id = request.form.get('channel_id')
+    cid = 1
+    name = session.get('username')
+
+    if message:
+        dbConnect.createMessage(uid, cid, message)
+    
+    channel = dbConnect.getChannelById(cid)
+    messages = dbConnect.getMessageAll(cid)
+
+    return render_template('index.html', messages=messages, channel=channel, uid=uid, username=name)
+
+
+
+
+
 
 
 if __name__ == '__main__':
