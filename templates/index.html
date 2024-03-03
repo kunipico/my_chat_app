@@ -29,14 +29,16 @@
                 <p class="user-name own">{{ message.user_name }}</p>
                 <div class="my-messages-wrapper">
                   <p class="box box-right">{{ message.message }}</p>
-                  <form id="delete-message" name="delete-message" action="/delete_message" method="POST">
-                    <input type="hidden" value="{{ channel.id }}" name="channel_id" />
+                  <form id="delete-message" name="delete-message" action="/message" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <!-- <input type="hidden" value="{{ channel }}" name="channel_id" /> -->
                     <button
                       class="delete-message-btn"
                       name="message_id"
                       value="{{ message.id }}"
                     >
-                      <ion-icon name="trash-bin-outline"></ion-icon>
+                      X
+                      <!-- <ion-icon name="trash-bin-outline"></ion-icon> -->
                     </button>
                   </form>
               </div>

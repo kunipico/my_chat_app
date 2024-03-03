@@ -97,33 +97,34 @@ def userSignup():
 
 
 
-############
-# Message  #
-############
+###########
+# Message #
+###########
 @app.post('/message')
-def add_message():
-    print("Add Message!!!")
+def message():
     uid = session.get("uid")
     if uid is None:
         return redirect('/login')
-
-    message = request.form.get('add_message')
-    print('message = ',message)
+    
     # channel_id = request.form.get('channel_id')
     cid = 1
     name = session.get('username')
 
-    if message:
-        dbConnect.createMessage(uid, cid, message)
+    if request.form.get('_method') == 'DELETE':
+        # DELETEリクエストの処理
+        print("Delete Message!!!")
+        mid = request.form.get('message_id')
+        dbConnect.deleteMessage(mid)
+    else:
+        print("Add Message!!!")
+        message = request.form.get('add_message')
+        print('message = ',message)
+        if message:
+            dbConnect.createMessage(uid, cid, message)
     
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
-
     return render_template('index.html', messages=messages, channel=channel, uid=uid, username=name)
-
-
-
-
 
 
 
